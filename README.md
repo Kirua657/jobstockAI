@@ -18,7 +18,7 @@
 - TypeScript
 - React
 - lucide-react
-- CSS ModulesではなくグローバルCSSによる軽量な初期UI
+- グローバルCSSによる軽量な初期UI
 
 ## セットアップ
 
@@ -35,6 +35,16 @@ OPENAI_MODEL=gpt-4.1-mini
 ```
 
 APIキーがない場合でも、アプリのAI変換ボタンはデモ用の簡易変換で動作します。
+
+## 今後の拡張候補
+
+- Supabase Auth による本番ログイン
+- PostgreSQL / Supabase Database への保存
+- AI生成回数制限と ai_logs 管理
+- 面接深掘り質問生成
+- ポートフォリオ説明支援
+- PDF出力
+- 有料プラン、広告、アフィリエイト導入
 
 ## 開発メモ
 

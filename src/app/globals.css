@@ -1,0 +1,678 @@
+:root {
+  --bg: #f6f7f9;
+  --panel: #ffffff;
+  --panel-strong: #f1f5f4;
+  --text: #202326;
+  --muted: #66706b;
+  --line: #dfe5e2;
+  --accent: #147c64;
+  --accent-strong: #0e604d;
+  --accent-soft: #e6f3ef;
+  --amber: #b86b00;
+  --coral: #b5482d;
+  --ink: #24313c;
+  --shadow: 0 14px 36px rgba(31, 41, 35, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  color: var(--text);
+  background: var(--bg);
+  font-family: Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  letter-spacing: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
+.appShell {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  height: 100vh;
+  padding: 24px;
+  background: #ffffff;
+  border-right: 1px solid var(--line);
+}
+
+.brandBlock {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brandMark {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  color: white;
+  background: var(--accent);
+  font-weight: 800;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: 1.1rem;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-size: 1.6rem;
+}
+
+h3 {
+  margin-bottom: 0;
+  font-size: 1.16rem;
+}
+
+h4 {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.navList {
+  display: grid;
+  gap: 8px;
+}
+
+.navButton,
+.railItem,
+.templateButton,
+.companyCard {
+  border: 1px solid transparent;
+  background: transparent;
+  text-align: left;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--muted);
+}
+
+.navButton.active,
+.navButton:hover {
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+}
+
+.planBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-strong);
+}
+
+.planBox p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.tag,
+.priority {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.priority-high {
+  color: #8c2f16;
+  background: #f8e7df;
+}
+
+.priority-medium {
+  color: #784600;
+  background: #f5ead6;
+}
+
+.priority-low {
+  color: #42526b;
+  background: #e8edf3;
+}
+
+.iconButton {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  background: white;
+}
+
+.workspace {
+  min-width: 0;
+  padding: 28px;
+}
+
+.topbar,
+.sectionHeader,
+.companyCardTop,
+.actionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.topbar {
+  margin-bottom: 26px;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.primaryButton {
+  border: 1px solid var(--accent);
+  color: white;
+  background: var(--accent);
+}
+
+.primaryButton:hover {
+  background: var(--accent-strong);
+}
+
+.secondaryButton {
+  border: 1px solid var(--line);
+  color: var(--ink);
+  background: white;
+}
+
+.contentStack {
+  display: grid;
+  gap: 18px;
+}
+
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.metricBox,
+.surface,
+.noteCard {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.metricBox {
+  min-height: 128px;
+  padding: 18px;
+}
+
+.metricIcon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+}
+
+.metricBox span {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.metricBox strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.55rem;
+}
+
+.companyGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.companyCard {
+  min-height: 172px;
+  padding: 18px;
+  border-color: var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.companyCard:hover,
+.railItem:hover,
+.railItem.active {
+  border-color: rgba(20, 124, 100, 0.42);
+  background: #fbfffd;
+}
+
+.companyCard p,
+.noteCard p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.cardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.cardMeta span {
+  min-height: 28px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  background: var(--panel-strong);
+}
+
+.splitLayout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 18px;
+}
+
+.companyRail {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.railItem {
+  display: grid;
+  gap: 6px;
+  min-height: 74px;
+  padding: 14px;
+  border-color: var(--line);
+  border-radius: 8px;
+  background: white;
+}
+
+.railItem span {
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.surface {
+  padding: 18px;
+}
+
+.formGrid,
+.controlGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.controlGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 18px 0;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  background: #fff;
+}
+
+input,
+select {
+  min-height: 42px;
+  padding: 9px 10px;
+}
+
+textarea {
+  min-height: 118px;
+  resize: vertical;
+  padding: 12px;
+  line-height: 1.7;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+  outline: 3px solid rgba(20, 124, 100, 0.12);
+}
+
+.compact {
+  margin-bottom: 16px;
+}
+
+.segmented {
+  display: inline-grid;
+  grid-auto-flow: column;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-strong);
+}
+
+.segmented button {
+  min-height: 34px;
+  border: 0;
+  border-radius: 6px;
+  padding: 7px 10px;
+  color: var(--muted);
+  background: transparent;
+}
+
+.segmented button.active {
+  color: var(--accent-strong);
+  background: white;
+  box-shadow: 0 1px 5px rgba(31, 41, 35, 0.08);
+}
+
+.mainTextarea {
+  min-height: 220px;
+}
+
+.aiSavedBox {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 8px;
+  color: var(--ink);
+  background: var(--panel-strong);
+}
+
+.aiSavedBox span,
+.previewLabel {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.aiSavedBox p,
+.previewBox {
+  margin: 8px 0 0;
+  white-space: pre-wrap;
+  line-height: 1.7;
+}
+
+.templateGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.templateColumn {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.templateButton {
+  display: flex;
+  gap: 8px;
+  min-height: 52px;
+  padding: 10px;
+  border-color: var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  background: #fff;
+  line-height: 1.45;
+}
+
+.templateButton:hover {
+  border-color: var(--accent);
+}
+
+.savedQuestions {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.checkRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--panel-strong);
+  font-weight: 500;
+}
+
+.checkRow input {
+  width: 18px;
+  min-height: 18px;
+  margin-top: 2px;
+}
+
+.aiStudio {
+  min-height: 620px;
+}
+
+.previewGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.previewBox {
+  min-height: 260px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-strong);
+}
+
+.previewBox.result {
+  background: #fffdfa;
+}
+
+.previewLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 26px;
+}
+
+.actionRow {
+  justify-content: flex-start;
+  margin-top: 16px;
+}
+
+.memoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 14px 0;
+}
+
+.noteList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.noteCard {
+  padding: 16px;
+}
+
+.loginShell {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 24px;
+  background: var(--bg);
+}
+
+.loginPanel {
+  display: grid;
+  gap: 16px;
+  width: min(440px, 100%);
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.loginBrand {
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+
+.loginBrand h1 {
+  max-width: 280px;
+  line-height: 1.4;
+}
+
+.fullButton {
+  width: 100%;
+}
+
+.spin {
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1080px) {
+  .appShell,
+  .splitLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+  }
+
+  .navList {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .metricGrid,
+  .templateGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .workspace,
+  .sidebar {
+    padding: 18px;
+  }
+
+  .topbar,
+  .sectionHeader,
+  .companyCardTop,
+  .actionRow {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .navList,
+  .metricGrid,
+  .companyGrid,
+  .formGrid,
+  .controlGrid,
+  .templateGrid,
+  .previewGrid,
+  .memoGrid,
+  .noteList {
+    grid-template-columns: 1fr;
+  }
+
+  .segmented {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+}
