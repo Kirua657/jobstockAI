@@ -13,13 +13,34 @@
   margin: 0 0 2px 4px;
 }
 
-.hintBox {
+.hintBox,
+.hintText {
   padding: 12px;
   border: 1px dashed var(--line);
   border-radius: 8px;
   color: var(--muted);
   background: var(--panel-strong);
   line-height: 1.6;
+}
+
+.hintText {
+  margin: 0;
+}
+
+.syncBadge {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 20;
+  max-width: min(320px, calc(100vw - 32px));
+  padding: 9px 12px;
+  border: 1px solid rgba(20, 124, 100, 0.22);
+  border-radius: 8px;
+  color: var(--accent-strong);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 10px 26px rgba(31, 41, 35, 0.12);
+  font-size: 0.82rem;
+  font-weight: 700;
 }
 
 .companyCard h4,
