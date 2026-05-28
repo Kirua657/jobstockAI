@@ -1,0 +1,39 @@
+.navGroup {
+  display: grid;
+  gap: 7px;
+}
+
+.navGroup + .navGroup {
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.navGroup .eyebrow {
+  margin: 0 0 2px 4px;
+}
+
+.hintBox {
+  padding: 12px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  background: var(--panel-strong);
+  line-height: 1.6;
+}
+
+.companyCard h4,
+.noteCard h4,
+.surface h4 {
+  overflow-wrap: anywhere;
+}
+
+.navButton {
+  width: 100%;
+}
+
+@media (max-width: 1180px) {
+  .navGroup {
+    align-content: start;
+  }
+}
