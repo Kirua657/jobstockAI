@@ -20,6 +20,7 @@
 - 選考通過率分析
 - 週次振り返りレポート
 - 本番公開準備チェック
+- Supabaseへの企業データ保存、Q&A掲示板の同期準備
 - ブラウザのローカルストレージへの自動保存
 
 ## 技術スタック
@@ -27,6 +28,7 @@
 - Next.js
 - TypeScript
 - React
+- Supabase
 - lucide-react
 - グローバルCSSによる軽量な初期UI
 
@@ -37,29 +39,40 @@ npm install
 npm run dev
 ```
 
-OpenAI APIを使う場合は、`.env.local` を作成してください。
+`.env.local` を作成して、必要な環境変数を入れます。
 
 ```bash
-OPENAI_API_KEY=your_api_key_here
+OPENAI_API_KEY=
 OPENAI_MODEL=gpt-4.1-mini
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_publishable_key
 ```
 
 APIキーがない場合でも、AI変換ボタンはデモ用の簡易変換で動作します。
 
-## Supabase 本番化メモ
+## Supabase設定
 
-現在はローカルストレージで動くMVPです。Supabaseへ移行する場合は、`docs/supabase-schema.sql` をSupabase SQL Editorで実行し、Auth、Database、Realtimeを有効化します。
+1. SupabaseのFreeプロジェクトを作成します。
+2. `NEXT_PUBLIC_SUPABASE_URL` と `NEXT_PUBLIC_SUPABASE_ANON_KEY` を `.env.local` に入れます。
+3. SupabaseのSQL Editorで `docs/supabase-schema.sql` を実行します。
+4. SupabaseのAuthentication設定で匿名ログインを有効にします。
+5. ローカルアプリを再起動します。
 
-優先してDB化する順番:
+アプリ右下の表示が `Supabase同期中` または `Supabase保存準備OK` になれば接続できています。`Supabase設定待ち・ローカル保存中` の場合は、SQL実行または匿名ログイン設定を確認してください。
 
-1. profiles / companies
-2. forum_posts / forum_answers
-3. ai_logs
-4. interview_notes / drafts / weekly_reports
+企業データはログインした匿名ユーザーごとに非公開で保存されます。企業別Q&Aは、他ユーザーも読める掲示板として保存され、Realtimeの対象になります。
 
-企業別Q&Aは、`forum_posts` と `forum_answers` を Supabase Realtime の購読対象にすると、他ユーザーの投稿が即時反映される構成にできます。
+## 既存スキーマを実行済みの場合
+
+古い `docs/supabase-schema.sql` をすでに実行していて、まだ大事なデータが入っていない場合は、Supabase側でJobStock用テーブルをリセットしてから最新SQLを実行してください。
+
+対象テーブル:
+
+- `companies`
+- `forum_answers`
+- `forum_posts`
+- `ai_logs`
+- `profiles`
 
 ## ローカル配置
 
