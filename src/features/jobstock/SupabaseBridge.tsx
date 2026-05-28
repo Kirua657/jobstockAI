@@ -289,13 +289,6 @@ export default function SupabaseBridge({ children }: { children: ReactNode }) {
       remoteIdsRef.current.answers = new Set(answers.map((answer) => answer.id));
     }
 
-    function replaceStorage(key: string, value: unknown) {
-      suppressSyncRef.current = true;
-      window.localStorage.setItem(key, JSON.stringify(value));
-      suppressSyncRef.current = false;
-      if (active) setAppVersion((version) => version + 1);
-    }
-
     async function refreshForum() {
       try {
         await pullForum(supabase, rememberRemoteIds);
